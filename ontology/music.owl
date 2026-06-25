@@ -1,0 +1,453 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+         xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+         xmlns:owl="http://www.w3.org/2002/07/owl#"
+         xml:base="http://musikon.uniba.it/music.owl"
+         xmlns="http://musikon.uniba.it/music.owl#">
+
+<owl:Ontology rdf:about="http://musikon.uniba.it/music.owl"/>
+
+<owl:DatatypeProperty rdf:about="#hasDanceability">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#MusicTrack"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasEnergy">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#MusicTrack"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasValence">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#MusicTrack"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasAcousticness">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#MusicTrack"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasInstrumentalness">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#MusicTrack"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasLiveness">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#MusicTrack"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasNormLoudness">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#MusicTrack"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasSpeechiness">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#MusicTrack"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasNormTempo">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#MusicTrack"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
+</owl:DatatypeProperty>
+
+<owl:DatatypeProperty rdf:about="#hasKey">
+  <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+  <rdfs:domain rdf:resource="#MusicTrack"/>
+  <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+</owl:DatatypeProperty>
+
+<owl:Class rdf:about="#MusicTrack">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#MoodCategory">
+  <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+</owl:Class>
+
+<owl:Class rdf:about="#PlaylistMhe">
+  <rdfs:subClassOf rdf:resource="#MoodCategory"/>
+</owl:Class>
+
+<owl:Class rdf:about="#PlaylistGoodVibes">
+  <rdfs:subClassOf rdf:resource="#MoodCategory"/>
+</owl:Class>
+
+<owl:Class rdf:about="#PlaylistOldVibes">
+  <rdfs:subClassOf rdf:resource="#MoodCategory"/>
+</owl:Class>
+
+<owl:Class rdf:about="#PlaylistAnime">
+  <rdfs:subClassOf rdf:resource="#MoodCategory"/>
+</owl:Class>
+
+<owl:Class rdf:about="#PlaylistItalian">
+  <rdfs:subClassOf rdf:resource="#MoodCategory"/>
+</owl:Class>
+
+<owl:Class rdf:about="#HighEnergy">
+  <rdfs:subClassOf rdf:resource="#MusicTrack"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#MusicTrack"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasEnergy"/>
+          <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.75</owl:hasValue>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#LowEnergy">
+  <rdfs:subClassOf rdf:resource="#MusicTrack"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#MusicTrack"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasEnergy"/>
+          <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.45</owl:hasValue>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#HighValence">
+  <rdfs:subClassOf rdf:resource="#MusicTrack"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#MusicTrack"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasValence"/>
+          <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.65</owl:hasValue>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#LowValence">
+  <rdfs:subClassOf rdf:resource="#MusicTrack"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#MusicTrack"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasValence"/>
+          <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.32</owl:hasValue>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#HighDanceability">
+  <rdfs:subClassOf rdf:resource="#MusicTrack"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#MusicTrack"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasDanceability"/>
+          <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.68</owl:hasValue>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#LowDanceability">
+  <rdfs:subClassOf rdf:resource="#MusicTrack"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#MusicTrack"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasDanceability"/>
+          <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.47</owl:hasValue>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#Acoustic">
+  <rdfs:subClassOf rdf:resource="#MusicTrack"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#MusicTrack"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasAcousticness"/>
+          <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.4</owl:hasValue>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#Electronic">
+  <rdfs:subClassOf rdf:resource="#MusicTrack"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#MusicTrack"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasAcousticness"/>
+          <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.05</owl:hasValue>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#Instrumental">
+  <rdfs:subClassOf rdf:resource="#MusicTrack"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#MusicTrack"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasInstrumentalness"/>
+          <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.05</owl:hasValue>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#Vocal">
+  <rdfs:subClassOf rdf:resource="#MusicTrack"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#MusicTrack"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasInstrumentalness"/>
+          <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.001</owl:hasValue>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#Live">
+  <rdfs:subClassOf rdf:resource="#MusicTrack"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#MusicTrack"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasLiveness"/>
+          <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.35</owl:hasValue>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#Studio">
+  <rdfs:subClassOf rdf:resource="#MusicTrack"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#MusicTrack"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasLiveness"/>
+          <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.12</owl:hasValue>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#Loud">
+  <rdfs:subClassOf rdf:resource="#MusicTrack"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#MusicTrack"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasNormLoudness"/>
+          <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.72</owl:hasValue>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#Quiet">
+  <rdfs:subClassOf rdf:resource="#MusicTrack"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#MusicTrack"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasNormLoudness"/>
+          <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.4</owl:hasValue>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#FastTempo">
+  <rdfs:subClassOf rdf:resource="#MusicTrack"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#MusicTrack"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasNormTempo"/>
+          <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.55</owl:hasValue>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#SlowTempo">
+  <rdfs:subClassOf rdf:resource="#MusicTrack"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#MusicTrack"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasNormTempo"/>
+          <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.3</owl:hasValue>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#Speechy">
+  <rdfs:subClassOf rdf:resource="#MusicTrack"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#MusicTrack"/>
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasSpeechiness"/>
+          <owl:hasValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">0.07</owl:hasValue>
+        </owl:Restriction>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#HappyTrack">
+  <rdfs:subClassOf rdf:resource="#MusicTrack"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#HighValence"/>
+        <rdf:Description rdf:about="#HighEnergy"/>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#SadTrack">
+  <rdfs:subClassOf rdf:resource="#MusicTrack"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#LowValence"/>
+        <rdf:Description rdf:about="#LowEnergy"/>
+        <rdf:Description rdf:about="#Acoustic"/>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#EnergeticDanceable">
+  <rdfs:subClassOf rdf:resource="#MusicTrack"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#HighEnergy"/>
+        <rdf:Description rdf:about="#HighDanceability"/>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#MellowAcoustic">
+  <rdfs:subClassOf rdf:resource="#MusicTrack"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#LowEnergy"/>
+        <rdf:Description rdf:about="#Acoustic"/>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#TenseTrack">
+  <rdfs:subClassOf rdf:resource="#MusicTrack"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#LowValence"/>
+        <rdf:Description rdf:about="#HighEnergy"/>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#ChillTrack">
+  <rdfs:subClassOf rdf:resource="#MusicTrack"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#HighValence"/>
+        <rdf:Description rdf:about="#LowEnergy"/>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#IntenseVocal">
+  <rdfs:subClassOf rdf:resource="#MusicTrack"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#HighEnergy"/>
+        <rdf:Description rdf:about="#Vocal"/>
+        <rdf:Description rdf:about="#Electronic"/>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+<owl:Class rdf:about="#AcousticSlow">
+  <rdfs:subClassOf rdf:resource="#MusicTrack"/>
+  <owl:equivalentClass>
+    <owl:Class>
+      <owl:intersectionOf rdf:parseType="Collection">
+        <rdf:Description rdf:about="#Acoustic"/>
+        <rdf:Description rdf:about="#SlowTempo"/>
+      </owl:intersectionOf>
+    </owl:Class>
+  </owl:equivalentClass>
+</owl:Class>
+
+
+</rdf:RDF>
